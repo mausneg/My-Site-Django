@@ -1,15 +1,51 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block page_title %}
     My Blog
 {% endblock page_title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
     
 
 {% block content %}
-    <h1>Welcome to My Blog</h1>
-    <div class="hero">
-        <img src="" alt="">
-        <h1>{{ user.username }}</h1>
-    </div>
+    <header id="main-navigation">
+        <h1><a href="">Mausneg's Blog</a></h1>
+        <nav>
+            <a href="">Posts</a>
+        </nav>
+    </header>
+    
+    <section id="welcome">
+        <header>
+            <img src="" alt="Mausneg's Image">
+            <h2>Mausneg's Blog</h2>
+        </header>
+        <p>Hi, I'm Mausneg and I love to blog about tech world!</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>Latest Posts</h2>
+        <ul id="list-posts">
+            <li>
+                <article class="posts">
+                    <a href="">
+                        <img src="" alt="Mountain Hiking">
+                        <div class="posts__content">
+                            <h3>Mountain Hiking</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit facere numquam non laboriosam minus repellat iure esse iusto, culpa, quidem, natus perspiciatis delectus unde! Illo eius dicta tenetur maiores qui?</p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>I love Programming, I love Python, and I love Machine Learning</p>
+        <p>My goal is to be successful people with 2 digit salary</p>
+    </section>
 {% endblock content %}

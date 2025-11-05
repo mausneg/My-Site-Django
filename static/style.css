@@ -1,10 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 
 html {
-    font-family: "Roboto", sans-serif;
+  font-family: 'Open Sans', 'Lato', sans-serif;
 }
 
 body {
-    margin: 0;
-    background-color: #f8fafc;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 }
