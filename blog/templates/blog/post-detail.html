@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    This Post Title
+{% endblock page_title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static 'blog/images/mountains.jpg' %}" alt="Post Title">
+            <address>By Mausneg</address>
+            <div>
+                Last updated on <time>April 21th</time>
+            </div>
+        </article>
+    </section>
+    <main>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsum repellat iusto saepe deleniti exercitationem mollitia tempora facilis omnis, a voluptatibus sequi maxime, obcaecati quae magnam, dolores quod qui labore?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsum repellat iusto saepe deleniti exercitationem mollitia tempora facilis omnis, a voluptatibus sequi maxime, obcaecati quae magnam, dolores quod qui labore?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsum repellat iusto saepe deleniti exercitationem mollitia tempora facilis omnis, a voluptatibus sequi maxime, obcaecati quae magnam, dolores quod qui labore?</p>
+    </main>
+{% endblock content %}
+    

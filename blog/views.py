@@ -15,4 +15,6 @@ def all_posts(request):
     return render(request, "blog/all-posts.html")
 
 def post_detail(request, slug):
-    return HttpResponse(slug)
+    return render(request, "blog/post-detail.html",{
+        'slug': slug
+    })
