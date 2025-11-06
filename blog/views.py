@@ -11,8 +11,8 @@ def index(request):
         "user": user
     })
 
-def posts(request):
-    return HttpResponse("posts")
+def all_posts(request):
+    return render(request, "blog/all-posts.html")
 
 def post_detail(request, slug):
     return HttpResponse(slug)

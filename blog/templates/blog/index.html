@@ -7,17 +7,11 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/includes/post.css' %}">
 {% endblock css_files %}
     
 
 {% block content %}
-    <header id="main-navigation">
-        <h1><a href="">Mausneg's Blog</a></h1>
-        <nav>
-            <a href="">Posts</a>
-        </nav>
-    </header>
-    
     <section id="welcome">
         <header>
             <img src="{% static 'blog/images/me.png' %}" alt="Mausneg's Image">
@@ -29,17 +23,7 @@
     <section id="latest-posts">
         <h2>Latest Posts</h2>
         <ul id="list-posts">
-            <li>
-                <article class="posts">
-                    <a href="">
-                        <img src="{% static 'blog/images/mountains.jpg' %}" alt="Mountain Hiking">
-                        <div class="posts__content">
-                            <h3>Mountain Hiking</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit facere numquam non laboriosam minus repellat iure esse iusto, culpa, quidem, natus perspiciatis delectus unde! Illo eius dicta tenetur maiores qui?</p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include 'blog/includes/post.html' %}
         </ul>
     </section>
 
