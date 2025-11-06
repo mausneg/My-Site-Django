@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date
+from django.http import Http404
 
 posts_data = [
     {
@@ -85,6 +86,9 @@ def posts(request):
     })
 
 def post_detail(request, slug):
-    return render(request, "blog/post-detail.html",{
-        'slug': slug
+    selected_post = next((post for post in posts_data if post['slug'] == slug) , None)
+    if selected_post is None:
+        raise Http404()
+    return render(request, "blog/post-detail.html", {
+        'post': selected_post
     })
