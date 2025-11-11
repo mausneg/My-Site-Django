@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date
 from django.http import Http404
+from .models import Post, Author, Tag
 
 posts_data = [
     {
@@ -16,7 +17,7 @@ posts_data = [
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
 
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
+          Lorem ipsum dolor sit amet cfonsectetur adipisicing elit. Officiis nobis
           aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
           velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
 
