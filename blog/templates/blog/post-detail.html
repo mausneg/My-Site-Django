@@ -28,10 +28,17 @@
     <main>
         {{ post.content|linebreaks }}
     </main>
-    <div>
+    <section id="comment-form">
+        <h2> Your Feedback</h2>
         <form action="{% url 'posts-comment' %}" method="post">
             {% csrf_token %}
-            {{ form }}
+            {% for field in form %}
+                <div class="form-control">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>       
+            {% endfor %}
             <input type="text" hidden name="slug" value="{{ post.slug }}">
             <button>Save comment</button>
         </form>
