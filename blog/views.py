@@ -18,25 +18,27 @@ class PostsView(ListView):
     context_object_name = "posts"
     ordering = ["-date"]
 
-class PostDetailView(DetailView):
-    template_name = "blog/post-detail.html"
-    model = Post
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["form"] = CommentForm()
-        context["tags"] = self.object.tag.all()
-        return context
-    
-class SaveComment(View):
-    def post(self, request):
-        slug = request.POST["slug"]
+class PostDetailView(View):
+    def get(self, request, slug):
         post = Post.objects.get(slug=slug)
-        comment = Comment(
-            username=request.POST["username"],
-            email=request.POST["email"],
-            text=request.POST["text"],
-            post=post
-        )
-        comment.save()
-        return HttpResponseRedirect(reverse("post-detail-page", args=[slug]))
+        context = {
+            "post": post,
+            "form": CommentForm(),
+            "tag": post.tag.all()
+        }
+        return render(request, "blog/post-detail.html", context)
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return HttpResponseRedirect(reverse("post-detail-page", args=[slug]))
+        return render(request, "blog/post-detail.html", {
+            "post": post,
+            "form": form,
+            "tags": post.tag.all(),
+        })
+    
