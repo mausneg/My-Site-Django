@@ -28,5 +28,13 @@
     <main>
         {{ post.content|linebreaks }}
     </main>
+    <div>
+        <form action="{% url 'posts-comment' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="text" hidden name="slug" value="{{ post.slug }}">
+            <button>Save comment</button>
+        </form>
+    </div>
 {% endblock content %}
     
