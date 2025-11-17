@@ -28,6 +28,19 @@
     <main>
         {{ post.content|linebreaks }}
     </main>
+    <section id="comments">
+        <ul>
+            
+            {% for comment in comments %}
+                <li>
+                    <h2>{{ comment.username }}</h2>
+                    <h5>{{ comment.datetime|date:"d M Y, H:i" }}</h5>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </li>
+            {% endfor %}
+                
+        </ul>
+    </section>
     <section id="comment-form">
         <h2> Your Feedback</h2>
         <form action="{% url 'post-detail-page' post.slug %}" method="post">

@@ -24,7 +24,8 @@ class PostDetailView(View):
         context = {
             "post": post,
             "form": CommentForm(),
-            "tag": post.tag.all()
+            "tag": post.tag.all(),
+            "comments": post.comments.all().order_by("-datetime")
         }
         return render(request, "blog/post-detail.html", context)
 
@@ -40,5 +41,6 @@ class PostDetailView(View):
             "post": post,
             "form": form,
             "tags": post.tag.all(),
+            "comments": post.comments.all().order_by("-datetime")
         })
     
